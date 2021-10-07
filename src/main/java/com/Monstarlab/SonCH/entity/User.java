@@ -11,7 +11,6 @@ import javax.persistence.*;
                 @UniqueConstraint(columnNames = "username")
         })
 @Entity
-@Data
 @EntityListeners(AuditingEntityListener.class)
 public class User {
     @Id

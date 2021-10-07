@@ -21,6 +21,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 @EnableWebSecurity
 public class SercurityConfig extends WebSecurityConfigurerAdapter {
 
+    private UserDetailsService userDetailsService;
     BCryptPasswordEncoder pe = new BCryptPasswordEncoder();
 
     @Autowired
@@ -33,6 +34,7 @@ public class SercurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth)
             throws Exception {
+//        auth.userDetailsService(userDetailsService).passwordEncoder(pe);
         auth.userDetailsService(username -> {
             try {
                 User user = dao.findByUsername(username);
@@ -62,5 +64,9 @@ public class SercurityConfig extends WebSecurityConfigurerAdapter {
                 .failureUrl("/admin/login/error");
 
     }
-
+    @Bean
+    @Override
+    public AuthenticationManager authenticationManagerBean() throws Exception {
+        return super.authenticationManagerBean();
+    }
 }

@@ -1,0 +1,13 @@
+package com.Monstarlab.SonCH;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class SonChApplicationTests {
+
+	@Test
+	void contextLoads() {
+	}
+
+}

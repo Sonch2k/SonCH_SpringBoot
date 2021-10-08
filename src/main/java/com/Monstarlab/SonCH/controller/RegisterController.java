@@ -25,7 +25,7 @@ public class RegisterController {
             Response response = registerService.registerPerfom(request);
             return response;
         }catch (DataDuplicatedException e) {
-            throw new BadRequestException(ResponseMessage.DuplicatedUsername);
+            throw new BadRequestException(ResponseMessage.DuplicatedUsername, request.getUsername());
         }
     }
 }

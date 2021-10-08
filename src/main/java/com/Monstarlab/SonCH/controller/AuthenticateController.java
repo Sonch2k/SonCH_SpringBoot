@@ -17,7 +17,6 @@ import javax.validation.Valid;
 @AllArgsConstructor
 public class AuthenticateController {
     private AuthenticateService authenticateService;
-
     @PostMapping("/auth")
     public Response authController(@Valid @RequestBody AuthRequest authRequest) throws UnauthorizedException {
         try {

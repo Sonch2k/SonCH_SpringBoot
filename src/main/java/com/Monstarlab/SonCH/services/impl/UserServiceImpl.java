@@ -1,6 +1,7 @@
 package com.Monstarlab.SonCH.services.impl;
 
 import com.Monstarlab.SonCH.repository.UserRepository;
+import com.Monstarlab.SonCH.response.ListUserResponse;
 import com.Monstarlab.SonCH.response.Response;
 import com.Monstarlab.SonCH.services.UserService;
 import lombok.AllArgsConstructor;
@@ -10,11 +11,11 @@ import java.util.Collections;
 
 @Service
 @AllArgsConstructor
-public class UsserServiceImpl implements UserService {
+public class UserServiceImpl implements UserService {
     private UserRepository userRepository;
     @Override
-    public Response getListUser() {
-        return Response.builder()
+    public ListUserResponse getListUser() {
+        return ListUserResponse.builder()
                 .status("200")
                 .message("get seccssfully")
                 .Data(Collections.singletonList(userRepository.findAll()))

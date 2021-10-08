@@ -5,7 +5,6 @@ import com.Monstarlab.SonCH.exception.BadRequestException;
 import com.Monstarlab.SonCH.exception.UnauthorizedException;
 import com.Monstarlab.SonCH.response.Response;
 import com.Monstarlab.SonCH.response.ResponseMessage;
-import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -34,14 +33,12 @@ public class ApiExceptionHandler {
         LOG.warn(e.getMessage());
         return new Response(ResponseMessage.DefaultInternalServerMessageError);
     }
-
-
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(BadRequestException.class)
     @ResponseBody
     public Response badRequestExceptionHandler(BadRequestException e) throws Exception {
         LOG.warn(e.getMessage());
-        return new Response(e.getStatus(), Collections.singletonList("null"), e.getMessage());
+        return new Response(e.getStatus(), null, e.getMessage());
     }
 
     @ResponseStatus(HttpStatus.UNAUTHORIZED)
@@ -49,7 +46,7 @@ public class ApiExceptionHandler {
     @ResponseBody
     public Response unauthorizedExceptionHandler(UnauthorizedException e) {
         LOG.warn(e.getMessage());
-        return new Response(e.getStatus(), Collections.singletonList("null"), e.getMessage());
+        return new Response(e.getStatus(), null, e.getMessage());
     }
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
@@ -68,6 +65,6 @@ public class ApiExceptionHandler {
         String errorCode = ResponseMessage.InvalidAccessError.getStatus();
         String errorMessage = ResponseMessage.InvalidAccessError.getMessage(errorItemBuilder.toString());
 
-        return new Response(errorCode, Collections.singletonList("null"), errorMessage);
+        return new Response(errorCode, null, errorMessage);
     }
 }

@@ -17,10 +17,9 @@ public class EntryPoint implements AuthenticationEntryPoint, Serializable {
     @Override
     public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException, ServletException {
         JSONObject jso = new JSONObject();
-        jso.put("Status", "109");
+        jso.put("status", "109");
         jso.put("data", "null");
         jso.put("massage", "fail to filter token");
-//        response.sendError(HttpServletResponse.SC_UNAUTHORIZED,"Sai cmnr");
         response.getWriter().write(jso.toJSONString());
         response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
         response.setContentType("application/json;charset=UTF-8");

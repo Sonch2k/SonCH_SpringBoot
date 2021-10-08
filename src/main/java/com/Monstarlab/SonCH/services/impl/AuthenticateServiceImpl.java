@@ -32,7 +32,7 @@ public class AuthenticateServiceImpl implements AuthenticateService {
         SecurityContextHolder.getContext().setAuthentication(authentication);
         String jwtToken = jwtUtils.generateToken(authentication);
         Response response = Response.builder()
-                .Data(Collections.singletonList(jwtToken))
+                .Data(jwtToken)
                 .status("200")
                 .message("Success Authenticate")
                 .build();

@@ -37,29 +37,22 @@ public class SercurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder auth)
             throws Exception {
         auth.userDetailsService(userDetailsService).passwordEncoder(pe);
-//        auth.userDetailsService(username -> {
-//            try {
-//                User user = dao.findByUsername(username);
-//                String password = user.getPassword();
-//
-//                return org.springframework.security.core.userdetails.User.withUsername(username)
-//                        .password(password).roles("").build();
-//            } catch (Exception e) {
-//                throw new UsernameNotFoundException(username + "not found!");
-//            }
-//        });
     }
     @Override
     protected void configure( HttpSecurity http) throws Exception {
         http
                 .cors().and().csrf().disable()
-                .exceptionHandling().authenticationEntryPoint(entryPoint)
+                .exceptionHandling()
+                .authenticationEntryPoint(entryPoint)
                 .and()
-                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                .sessionManagement()
+                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authorizeRequests()
-                .antMatchers("/auth","/register","/admin/login/error","/admin/login/sucess").permitAll()
-                .anyRequest().authenticated()
+                .antMatchers("/auth","/register","/admin/login/error","/admin/login/sucess")
+                .permitAll()
+                .anyRequest()
+                .authenticated()
                 .and()
                 .formLogin()
                 .loginPage("/admin/login/form")

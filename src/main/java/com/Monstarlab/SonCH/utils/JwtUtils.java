@@ -20,7 +20,6 @@ import java.util.Objects;
 public class JwtUtils {
     private UserRepository userRepository;
     private CommonProperties commonProperties;
-
     public String generateToken(Authentication authentication) {
         User user = userRepository.findByUsername(authentication.getName());
         Date now = new Date();
@@ -34,22 +33,19 @@ public class JwtUtils {
                 .compact();
         return jwtToken;
     }
-
-    public String parseeJWT(HttpServletRequest request) {
+    public String parseJWT(HttpServletRequest request) {
         String header = request.getHeader("Authorization");
-        if (!header.isEmpty() && header.startsWith("Bearer ")) {
-            return header.substring(7);
+        if (header.startsWith("Bearer ")) {
+            return header.replaceFirst(Constants.BEARER_HEADER,"");
         }
         return null;
     }
-
     public Boolean validateJWT(String jwt) {
         Jwts.parser()
                 .setSigningKey(commonProperties.getSecret())
                 .parseClaimsJws(jwt);
         return true;
     }
-
     public String getUsername(String jwt) {
         String username = Jwts.parser()
                 .setSigningKey(commonProperties.getSecret())

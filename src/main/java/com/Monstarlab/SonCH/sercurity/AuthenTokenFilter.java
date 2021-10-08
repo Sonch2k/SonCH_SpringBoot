@@ -1,7 +1,5 @@
 package com.Monstarlab.SonCH.sercurity;
 
-import com.Monstarlab.SonCH.entity.User;
-import com.Monstarlab.SonCH.repository.UserRepository;
 import com.Monstarlab.SonCH.utils.JwtUtils;
 import lombok.AllArgsConstructor;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -28,7 +26,7 @@ public class AuthenTokenFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         try{
-            String jwt = jwtUtils.parseeJWT(request);
+            String jwt = jwtUtils.parseJWT(request);
             if (!jwt.isEmpty() && jwtUtils.validateJWT(jwt)) {
                 UserDetails userDetails = userDetailsService.loadUserByUsername(jwtUtils.getUsername(jwt));
                 if (Objects.nonNull(userDetails)) {

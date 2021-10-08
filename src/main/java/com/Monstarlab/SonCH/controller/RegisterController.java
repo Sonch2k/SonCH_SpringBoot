@@ -19,11 +19,8 @@ import javax.validation.Valid;
 @AllArgsConstructor
 public class RegisterController {
     private RegisterService registerService;
-
     @PostMapping("/register")
     public Response registerController(@Valid @RequestBody RegisterRequest request) throws BadRequestException {
-
-
         try {
             Response response = registerService.registerPerfom(request);
             return response;

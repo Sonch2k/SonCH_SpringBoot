@@ -34,8 +34,8 @@ public class JwtUtils {
         return jwtToken;
     }
     public String parseJWT(HttpServletRequest request) {
-        String header = request.getHeader("Authorization");
-        if (header.startsWith("Bearer ")) {
+        String header = request.getHeader(Constants.HEADER_NAME_JWT);
+        if (header.startsWith(Constants.BEARER_HEADER)) {
             return header.replaceFirst(Constants.BEARER_HEADER,"");
         }
         return null;

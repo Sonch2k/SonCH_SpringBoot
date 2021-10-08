@@ -17,7 +17,8 @@ import java.util.Objects;
 @Service
 @AllArgsConstructor
 public class UserDetailsServiceimpl implements UserDetailsService {
-private UserRepository userRepository;
+    private UserRepository userRepository;
+
     @Override
     @Transactional
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

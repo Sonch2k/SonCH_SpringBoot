@@ -10,11 +10,13 @@ public class LoginController {
     public String loginForm(Model model) {
         return "login";
     }
+
     @RequestMapping("/admin/login/error")
     public String loginError(Model model) {
         model.addAttribute("message", "Error");
         return "index";
     }
+
     @RequestMapping("/admin/login/sucess")
     public String loginSuccessfull(Model model) {
         model.addAttribute("message", "Thanh Cong");

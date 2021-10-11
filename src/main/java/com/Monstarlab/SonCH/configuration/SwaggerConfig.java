@@ -50,7 +50,7 @@ public class SwaggerConfig {
                 "Some custom description of API.",
                 "1.0",
                 "Terms of service",
-                new Contact("SonCH", "https://www.instagram.com/son.c.h_2312/", "sonchhe2k@gmail.com"),
+                new Contact("SonCH","https://www.instagram.com/son.c.h_2312/","sonchhe2k@gmail.com"),
                 "License of API",
                 "API license URL",
                 Collections.emptyList());

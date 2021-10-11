@@ -26,7 +26,9 @@ public class SwaggerConfig {
                 .securityContexts(Arrays.asList(securityContext()))
                 .securitySchemes(Arrays.asList(apiKey()))
                 .select()
+                //make public document for all API across Swagger
                 .apis(RequestHandlerSelectors.any())
+                //path that Swagger scan to API
                 .paths(PathSelectors.any())
                 .build();
     }
@@ -48,7 +50,7 @@ public class SwaggerConfig {
                 "Some custom description of API.",
                 "1.0",
                 "Terms of service",
-                new Contact("SonCH", "facebook.com", "sonchhe2k@gmail.com"),
+                new Contact("SonCH", "https://www.instagram.com/son.c.h_2312/", "sonchhe2k@gmail.com"),
                 "License of API",
                 "API license URL",
                 Collections.emptyList());

@@ -19,9 +19,9 @@ import javax.validation.Valid;
 public class AuthenticateController {
     private AuthenticateService authenticateService;
     @PostMapping("/auth")
-    public BaseResponse authController(@Valid @RequestBody AuthRequest authRequest) throws UnauthorizedException {
+    public LoginResponse authController(@Valid @RequestBody AuthRequest authRequest) throws UnauthorizedException {
         try {
-            BaseResponse response = authenticateService.performAuthenticate(authRequest);
+            LoginResponse response = authenticateService.performAuthenticate(authRequest);
             return response;
         } catch (AuthenticationException e) {
             throw new UnauthorizedException(ResponseMessage.AuthenticateUserFailed);

@@ -2,8 +2,8 @@ package com.Monstarlab.SonCH.services;
 
 import com.Monstarlab.SonCH.exception.DataDuplicatedException;
 import com.Monstarlab.SonCH.request.RegisterRequest;
-import com.Monstarlab.SonCH.response.Response;
+import com.Monstarlab.SonCH.response.BaseResponse;
 
 public interface RegisterService {
-    public Response registerPerfom(RegisterRequest registerRequest) throws DataDuplicatedException;
+    public BaseResponse registerPerfom(RegisterRequest registerRequest) throws DataDuplicatedException;
 }

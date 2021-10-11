@@ -27,7 +27,7 @@ public class SwaggerConfig {
                 .securitySchemes(Arrays.asList(apiKey()))
                 .select()
                 //make public document for all API across Swagger
-                .apis(RequestHandlerSelectors.any())
+                .apis(RequestHandlerSelectors.basePackage("com.Monstarlab.SonCH.controller"))
                 //path that Swagger scan to API
                 .paths(PathSelectors.any())
                 .build();

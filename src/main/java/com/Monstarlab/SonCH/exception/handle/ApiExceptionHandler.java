@@ -3,7 +3,7 @@ package com.Monstarlab.SonCH.exception.handle;
 
 import com.Monstarlab.SonCH.exception.BadRequestException;
 import com.Monstarlab.SonCH.exception.UnauthorizedException;
-import com.Monstarlab.SonCH.response.Response;
+import com.Monstarlab.SonCH.response.BaseResponse;
 import com.Monstarlab.SonCH.response.ResponseMessage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,8 +14,6 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-
-import java.util.Collections;
 
 @RestControllerAdvice
 public class ApiExceptionHandler {
@@ -29,30 +27,30 @@ public class ApiExceptionHandler {
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     @ExceptionHandler(Exception.class)
     @ResponseBody
-    public Response exceptionHandler(Exception e) {
+    public BaseResponse exceptionHandler(Exception e) {
         LOG.warn(e.getMessage());
-        return new Response(ResponseMessage.DefaultInternalServerMessageError);
+        return new BaseResponse(ResponseMessage.DefaultInternalServerMessageError);
     }
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(BadRequestException.class)
     @ResponseBody
-    public Response badRequestExceptionHandler(BadRequestException e) throws Exception {
+    public BaseResponse badRequestExceptionHandler(BadRequestException e) throws Exception {
         LOG.warn(e.getMessage());
-        return new Response(e.getStatus(), null, e.getMessage());
+        return new BaseResponse(e.getStatus(), null, e.getMessage());
     }
 
     @ResponseStatus(HttpStatus.UNAUTHORIZED)
     @ExceptionHandler(UnauthorizedException.class)
     @ResponseBody
-    public Response unauthorizedExceptionHandler(UnauthorizedException e) {
+    public BaseResponse unauthorizedExceptionHandler(UnauthorizedException e) {
         LOG.warn(e.getMessage());
-        return new Response(e.getStatus(), null, e.getMessage());
+        return new BaseResponse(e.getStatus(), null, e.getMessage());
     }
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(MethodArgumentNotValidException.class)
     @ResponseBody
-    public Response methodArgumentNotValidExceptionHandler(MethodArgumentNotValidException e) throws Exception {
+    public BaseResponse methodArgumentNotValidExceptionHandler(MethodArgumentNotValidException e) throws Exception {
 
         StringBuilder errorItemBuilder = new StringBuilder();
 
@@ -65,6 +63,6 @@ public class ApiExceptionHandler {
         String errorCode = ResponseMessage.InvalidAccessError.getStatus();
         String errorMessage = ResponseMessage.InvalidAccessError.getMessage(errorItemBuilder.toString());
 
-        return new Response(errorCode, null, errorMessage);
+        return new BaseResponse(errorCode, null, errorMessage);
     }
 }

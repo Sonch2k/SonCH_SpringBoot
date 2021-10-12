@@ -1,4 +1,4 @@
-package com.Monstarlab.SonCH.controller;
+package com.Monstarlab.SonCH.web;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

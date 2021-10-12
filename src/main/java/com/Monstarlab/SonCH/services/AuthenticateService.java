@@ -1,9 +1,10 @@
 package com.Monstarlab.SonCH.services;
 
 import com.Monstarlab.SonCH.request.AuthRequest;
-import com.Monstarlab.SonCH.response.Response;
+import com.Monstarlab.SonCH.response.BaseResponse;
+import com.Monstarlab.SonCH.response.LoginResponse;
 import org.springframework.security.core.AuthenticationException;
 
 public interface AuthenticateService {
-    public Response performAuthenticate(AuthRequest authRequest)throws AuthenticationException;
+    public LoginResponse performAuthenticate(AuthRequest authRequest)throws AuthenticationException;
 }

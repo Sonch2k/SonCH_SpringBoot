@@ -4,7 +4,7 @@ import com.Monstarlab.SonCH.entity.User;
 import com.Monstarlab.SonCH.exception.DataDuplicatedException;
 import com.Monstarlab.SonCH.repository.UserRepository;
 import com.Monstarlab.SonCH.request.RegisterRequest;
-import com.Monstarlab.SonCH.response.Response;
+import com.Monstarlab.SonCH.response.BaseResponse;
 import com.Monstarlab.SonCH.services.RegisterService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.BeanUtils;
@@ -20,7 +20,7 @@ public class RegisterServiceImpl implements RegisterService {
     private PasswordEncoder passwordEncoder;
 
     @Override
-    public Response registerPerfom(RegisterRequest registerRequest) throws DataDuplicatedException {
+    public BaseResponse registerPerfom(RegisterRequest registerRequest) throws DataDuplicatedException {
         User user = new User();
         User result = userRepository.findByUsername(registerRequest.getUsername());
         if (Objects.nonNull(result)) {
@@ -31,7 +31,7 @@ public class RegisterServiceImpl implements RegisterService {
         BeanUtils.copyProperties(registerRequest, user);
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         userRepository.save(user);
-        return Response.builder()
+        return BaseResponse.builder()
                 .message("Register Success")
                 .status("200")
                 .Data(null)

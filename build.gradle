@@ -48,7 +48,7 @@ test {
 jar {
     manifest {
         attributes(
-                'Main-Class': 'com.Monstarlab.SonCH'
+                'Main-Class': 'com.Monstarlab.SonCH.SonChApplication'
         )
     }
 }

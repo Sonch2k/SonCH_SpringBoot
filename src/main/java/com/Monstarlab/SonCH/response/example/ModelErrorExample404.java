@@ -7,6 +7,6 @@ public class ModelErrorExample404 {
     public Object data;
     @ApiModelProperty(value = "message",example = "Not Found,Try again!")
     public String message;
-    @ApiModelProperty(value = "status",example = "403")
+    @ApiModelProperty(value = "status",example = "404")
     public String status;
 }

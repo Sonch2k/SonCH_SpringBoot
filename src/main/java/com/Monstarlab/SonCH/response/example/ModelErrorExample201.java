@@ -5,7 +5,7 @@ import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
 public class ModelErrorExample201 {
-
+    @ApiModelProperty(value = "data",example = "")
     public String data;
     @ApiModelProperty(value = "message",example = "created success")
     public String message;

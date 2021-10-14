@@ -3,6 +3,7 @@ package com.Monstarlab.SonCH.response.example;
 import io.swagger.annotations.ApiModelProperty;
 
 public class ModelErrorExample403 {
+    @ApiModelProperty(value = "data",example = "")
     public String data;
     @ApiModelProperty(value = "message",example = "Forbidden,Try again!")
     public String message;

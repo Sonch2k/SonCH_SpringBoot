@@ -6,6 +6,8 @@ import lombok.Data;
 @AllArgsConstructor
 @Data
 public class RegisterRequest {
+    @ApiModelProperty(value = "username",example = "username")
     private String username;
+    @ApiModelProperty(value = "password",example = "*******")
     private String password;
 }

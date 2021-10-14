@@ -5,6 +5,8 @@ import com.Monstarlab.SonCH.request.AuthRequest;
 import com.Monstarlab.SonCH.response.BaseResponse;
 import com.Monstarlab.SonCH.response.LoginResponse;
 import com.Monstarlab.SonCH.response.ResponseMessage;
+import com.Monstarlab.SonCH.response.example.ModelErrorExample403;
+import com.Monstarlab.SonCH.response.example.ModelErrorExample404;
 import com.Monstarlab.SonCH.services.AuthenticateService;
 import io.swagger.annotations.*;
 import lombok.AllArgsConstructor;
@@ -21,8 +23,8 @@ import javax.validation.Valid;
 public class AuthenticateController {
     private AuthenticateService authenticateService;
     @ApiResponses(value = {
-            @ApiResponse(code = 403, message = "Forbidden",response = BaseResponse.class),
-            @ApiResponse(code = 404, message = "Not Found",response = BaseResponse.class)})
+            @ApiResponse(code = 403, message = "Forbidden",response = ModelErrorExample403.class),
+            @ApiResponse(code = 404, message = "Not Found",response = ModelErrorExample404.class)})
     @PostMapping("/auth")
     public LoginResponse authController(@Valid @RequestBody AuthRequest authRequest) throws UnauthorizedException {
         try {

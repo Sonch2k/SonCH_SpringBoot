@@ -17,7 +17,7 @@ public class UserServiceImpl implements UserService {
         return ListUserResponse.builder()
                 .status("200")
                 .message("get seccssfully")
-                .Data(Collections.singletonList(userRepository.findAll()))
+                .data(Collections.singletonList(userRepository.findAll()))
                 .build();
     }
 }

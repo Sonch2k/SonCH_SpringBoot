@@ -5,6 +5,9 @@ import com.Monstarlab.SonCH.exception.DataDuplicatedException;
 import com.Monstarlab.SonCH.request.RegisterRequest;
 import com.Monstarlab.SonCH.response.BaseResponse;
 import com.Monstarlab.SonCH.response.ResponseMessage;
+import com.Monstarlab.SonCH.response.example.ModelErrorExample201;
+import com.Monstarlab.SonCH.response.example.ModelErrorExample403;
+import com.Monstarlab.SonCH.response.example.ModelErrorExample404;
 import com.Monstarlab.SonCH.services.RegisterService;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
@@ -21,9 +24,9 @@ public class RegisterController {
     private RegisterService registerService;
     @PostMapping("/register")
     @ApiResponses(value = {
-            @ApiResponse(code = 403, message = "Forbidden",response = BaseResponse.class),
-            @ApiResponse(code = 404, message = "Not Found",response = BaseResponse.class),
-            @ApiResponse(code = 201, message = "created",response = BaseResponse.class)})
+            @ApiResponse(code = 403, message = "Forbidden",response = ModelErrorExample403.class),
+            @ApiResponse(code = 404, message = "Not Found",response = ModelErrorExample404.class),
+            @ApiResponse(code = 201, message = "created",response = ModelErrorExample201.class)})
     public BaseResponse registerController(@Valid @RequestBody RegisterRequest request) throws BadRequestException {
         try {
             BaseResponse response = registerService.registerPerfom(request);

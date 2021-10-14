@@ -10,8 +10,10 @@ import lombok.Data;
 @AllArgsConstructor
 @Data
 public class BaseResponse<T>{
+    @ApiModelProperty(value = "status",example = "200")
     private String status;
     private T data;
+    @ApiModelProperty(value = "message",example = "successfully!")
     private String message;
 
     public BaseResponse(final ResponseMessage responeMessage, Object... params) {

@@ -1,6 +1,7 @@
 package com.Monstarlab.SonCH.response;
 
 import com.Monstarlab.SonCH.response.information.LoginInfo;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

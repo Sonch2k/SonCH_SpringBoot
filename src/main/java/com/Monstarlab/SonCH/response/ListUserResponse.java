@@ -16,9 +16,9 @@ import java.util.List;
 public class ListUserResponse {
     @ApiModelProperty(value = "status",example = "200")
     private String status;
-    @ApiModelProperty(value = "data",example = "List all User")
+    @ApiModelProperty(value = "message",example = "Get list user,succesful")
     private List<Object> data;
-    @ApiModelProperty(value = "message",example = "[\n" +
+    @ApiModelProperty(value = "data",example = "[\n" +
             "      {\n" +
             "        \"id\": 1,\n" +
             "        \"username\": \"ahihi\",\n" +

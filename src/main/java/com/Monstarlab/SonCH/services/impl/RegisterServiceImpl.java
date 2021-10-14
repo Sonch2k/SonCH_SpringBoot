@@ -34,7 +34,7 @@ public class RegisterServiceImpl implements RegisterService {
         return BaseResponse.builder()
                 .message("Register Success")
                 .status("200")
-                .Data(null)
+                .data(null)
                 .build();
     }
 }

@@ -4,8 +4,11 @@ package com.Monstarlab.SonCH.configuration;
 import com.Monstarlab.SonCH.utils.Constants;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.bind.annotation.RequestMethod;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.builders.ResponseMessageBuilder;
+import springfox.documentation.schema.ModelRef;
 import springfox.documentation.service.*;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spi.service.contexts.SecurityContext;
@@ -30,7 +33,8 @@ public class SwaggerConfig {
                 .apis(RequestHandlerSelectors.basePackage("com.Monstarlab.SonCH.controller"))
                 //path that Swagger scan to API
                 .paths(PathSelectors.any())
-                .build();
+                .build()
+                .useDefaultResponseMessages(false);
     }
     private ApiKey apiKey() {
         return new ApiKey(Constants.JWT, Constants.HEADER_NAME_JWT, Constants.HEADER);

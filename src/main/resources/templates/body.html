@@ -1,244 +1,140 @@
 <!DOCTYPE html>
-<html
-        xmlns="http://www.w3.org/1999/xhtml"
-        xmlns:th="https://www.thymeleaf.org"
-        xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<html lang="en">
 <title>W3.CSS Template</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
-    .w3-sidebar a {font-family: "Roboto", sans-serif}
-    body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
+    html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
+    .w3-sidebar {
+        z-index: 3;
+        width: 250px;
+        top: 43px;
+        bottom: 0;
+        height: inherit;
+    }
+    img{
+        width: 100%;
+    }
 </style>
-<body class="w3-content" style="max-width:1200px">
+<body>
 
-<!-- Sidebar/menu -->
-<nav class="w3-sidebar w3-bar-block w3-white w3-collapse w3-top" style="z-index:3;width:250px" id="mySidebar">
-    <div class="w3-container w3-display-container w3-padding-16">
-        <i onclick="w3_close()" class="fa fa-remove w3-hide-large w3-button w3-display-topright"></i>
-        <h3 class="w3-wide"><b>LOGO</b></h3>
+<!-- Navbar -->
+<div class="w3-top">
+    <div class="w3-bar w3-theme w3-top w3-left-align w3-large">
+        <a class="w3-bar-item w3-button w3-right w3-hide-large w3-hover-white w3-large w3-theme-l1" href="javascript:void(0)" onclick="w3_open()"><i class="fa fa-bars"></i></a>
+        <a href="#" class="w3-bar-item w3-button w3-theme-l1">Logo</a>
+        <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white">About</a>
+        <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Values</a>
+        <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white">News</a>
+        <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Contact</a>
+        <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white">Clients</a>
+        <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white">Partners</a>
     </div>
-    <div class="w3-padding-64 w3-large w3-text-grey" style="font-weight:bold">
-        <a href="#" class="w3-bar-item w3-button">Shirts</a>
-        <a href="#" class="w3-bar-item w3-button">Dresses</a>
-        <a onclick="myAccFunc()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn">
-            Jeans <i class="fa fa-caret-down"></i>
-        </a>
-        <div id="demoAcc" class="w3-bar-block w3-hide w3-padding-large w3-medium">
-            <a href="#" class="w3-bar-item w3-button w3-light-grey"><i class="fa fa-caret-right w3-margin-right"></i>Skinny</a>
-            <a href="#" class="w3-bar-item w3-button">Relaxed</a>
-            <a href="#" class="w3-bar-item w3-button">Bootcut</a>
-            <a href="#" class="w3-bar-item w3-button">Straight</a>
-        </div>
-        <a href="#" class="w3-bar-item w3-button">Jackets</a>
-        <a href="#" class="w3-bar-item w3-button">Gymwear</a>
-        <a href="#" class="w3-bar-item w3-button">Blazers</a>
-        <a href="#" class="w3-bar-item w3-button">Shoes</a>
-    </div>
-    <a href="#footer" class="w3-bar-item w3-button w3-padding">Contact</a>
-    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding" onclick="document.getElementById('newsletter').style.display='block'">Newsletter</a>
-    <a href="#footer"  class="w3-bar-item w3-button w3-padding">Subscribe</a>
+</div>
+
+<!-- Sidebar -->
+<nav class="w3-sidebar w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-left" id="mySidebar">
+    <a href="javascript:void(0)" onclick="w3_close()" class="w3-right w3-xlarge w3-padding-large w3-hover-black w3-hide-large" title="Close Menu">
+        <i class="fa fa-remove"></i>
+    </a>
+    <h4 class="w3-bar-item"><b>Menu</b></h4>
+    <a class="w3-bar-item w3-button w3-hover-black" href="#">Home</a>
+    <a class="w3-bar-item w3-button w3-hover-black" href="#">Communication</a>
+    <a class="w3-bar-item w3-button w3-hover-black" href="#">Blog</a>
+    <a class="w3-bar-item w3-button w3-hover-black" href="#">About me</a>
 </nav>
-
-<!-- Top menu on small screens -->
-<header class="w3-bar w3-top w3-hide-large w3-black w3-xlarge">
-    <div class="w3-bar-item w3-padding-24 w3-wide">LOGO</div>
-    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding-24 w3-right" onclick="w3_open()"><i class="fa fa-bars"></i></a>
-</header>
 
 <!-- Overlay effect when opening sidebar on small screens -->
 <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
 
-<!-- !PAGE CONTENT! -->
+<!-- Main content: shift it to the right by 250 pixels when the sidebar is visible -->
 <div class="w3-main" style="margin-left:250px">
 
-    <!-- Push down content on small screens -->
-    <div class="w3-hide-large" style="margin-top:83px"></div>
-
-    <!-- Top header -->
-    <header class="w3-container w3-xlarge">
-        <p class="w3-left">Jeans</p>
-        <p class="w3-right">
-            <i class="fa fa-shopping-cart w3-margin-right"></i>
-            <i class="fa fa-search"></i>
-        </p>
-    </header>
-
-    <!-- Image header -->
-    <div class="w3-display-container w3-container">
-        <img src="/w3images/jeans.jpg" alt="Jeans" style="width:100%">
-        <div class="w3-display-topleft w3-text-white" style="padding:24px 48px">
-            <h1 class="w3-jumbo w3-hide-small">New arrivals</h1>
-            <h1 class="w3-hide-large w3-hide-medium">New arrivals</h1>
-            <h1 class="w3-hide-small">COLLECTION 2016</h1>
-            <p><a href="#jeans" class="w3-button w3-black w3-padding-large w3-large">SHOP NOW</a></p>
+    <div class="w3-row w3-padding-64">
+        <div class="w3-twothird w3-container">
+            <h1 class="w3-text-teal">Heading</h1>
+            <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum
+                dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h3>
+        </div>
+        <div class="w3-third w3-container">
+            <img class="w3-border w3-padding-large w3-padding-32 w3-center" src="https://i.ytimg.com/vi/WZhNQpgg0Dw/maxresdefault.jpg" alt="anh gi day">
+            <img class="w3-border w3-padding-large w3-padding-64 w3-center" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgIUIm1fSuh8G4TmT56Si0NUqxlTnwuvCh_w&usqp=CAU" alt="anh gi day">
         </div>
     </div>
 
-    <div class="w3-container w3-text-grey" id="jeans">
-        <p>8 items</p>
-    </div>
-
-    <!-- Product grid -->
-    <div class="w3-row w3-grayscale">
-        <div class="w3-col l3 s6">
-            <div class="w3-container">
-                <img src="/w3images/jeans1.jpg" style="width:100%">
-                <p>Ripped Skinny Jeans<br><b>$24.99</b></p>
-            </div>
-            <div class="w3-container">
-                <img src="/w3images/jeans2.jpg" style="width:100%">
-                <p>Mega Ripped Jeans<br><b>$19.99</b></p>
-            </div>
+    <div class="w3-row">
+        <div class="w3-twothird w3-container">
+            <h1 class="w3-text-teal">Body</h1>
+            <h3>Consultants know strategy. Development shops know how to code. Monstarlab provides a seamless solution — effective strategies with global insight, precisely executed with cutting-edge technology, all at scale.</h3>
         </div>
-
-        <div class="w3-col l3 s6">
-            <div class="w3-container">
-                <div class="w3-display-container">
-                    <img src="/w3images/jeans2.jpg" style="width:100%">
-                    <span class="w3-tag w3-display-topleft">New</span>
-                    <div class="w3-display-middle w3-display-hover">
-                        <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
-                    </div>
-                </div>
-                <p>Mega Ripped Jeans<br><b>$19.99</b></p>
-            </div>
-            <div class="w3-container">
-                <img src="/w3images/jeans3.jpg" style="width:100%">
-                <p>Washed Skinny Jeans<br><b>$20.50</b></p>
-            </div>
-        </div>
-
-        <div class="w3-col l3 s6">
-            <div class="w3-container">
-                <img src="/w3images/jeans3.jpg" style="width:100%">
-                <p>Washed Skinny Jeans<br><b>$20.50</b></p>
-            </div>
-            <div class="w3-container">
-                <div class="w3-display-container">
-                    <img src="/w3images/jeans4.jpg" style="width:100%">
-                    <span class="w3-tag w3-display-topleft">Sale</span>
-                    <div class="w3-display-middle w3-display-hover">
-                        <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
-                    </div>
-                </div>
-                <p>Vintage Skinny Jeans<br><b class="w3-text-red">$14.99</b></p>
-            </div>
-        </div>
-
-        <div class="w3-col l3 s6">
-            <div class="w3-container">
-                <img src="/w3images/jeans4.jpg" style="width:100%">
-                <p>Vintage Skinny Jeans<br><b>$14.99</b></p>
-            </div>
-            <div class="w3-container">
-                <img src="/w3images/jeans1.jpg" style="width:100%">
-                <p>Ripped Skinny Jeans<br><b>$24.99</b></p>
-            </div>
+        <div class="w3-third w3-container">
+            <img class="w3-border w3-padding-large w3-padding-32 w3-center" src="https://alosoft.vn/wp-content/uploads/2018/06/1-3.jpg" alt="anh gi day">
+            <img class="w3-border w3-padding-large w3-padding-64 w3-center" src="data:image/jpeg;base64,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" alt="anh gi day">
         </div>
     </div>
 
-    <!-- Subscribe section -->
-    <div class="w3-container w3-black w3-padding-32">
-        <h1>Subscribe</h1>
-        <p>To get special offers and VIP treatment:</p>
-        <p><input class="w3-input w3-border" type="text" placeholder="Enter e-mail" style="width:100%"></p>
-        <button type="button" class="w3-button w3-red w3-margin-bottom">Subscribe</button>
+    <div class="w3-row w3-padding-64">
+        <div class="w3-twothird w3-container">
+            <h1 class="w3-text-teal">Contact</h1>
+            <h3>With specialists all around the globe, we can scale and adapt teams to meet your specific needs, however challenging the project. Get in touch and we’ll reply within one business day.</h3>
+        </div>
+        <div class="w3-third w3-container">
+            <img class="w3-border w3-padding-large w3-padding-32 w3-center" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_NFtcVfK98ova_TJYFbvrNEP-EP7d5kj-UA&usqp=CAU" alt="anh gi day">
+            <img class="w3-border w3-padding-large w3-padding-64 w3-center" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfiNAXiZbRF0g0Im6hkiJeCSW6AgEIK3FvKg&usqp=CAU" alt="anh gi day">
+
+        </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="w3-padding-64 w3-light-grey w3-small w3-center" id="footer">
-        <div class="w3-row-padding">
-            <div class="w3-col s4">
-                <h4>Contact</h4>
-                <p>Questions? Go ahead.</p>
-                <form action="/action_page.php" target="_blank">
-                    <p><input class="w3-input w3-border" type="text" placeholder="Name" name="Name" required></p>
-                    <p><input class="w3-input w3-border" type="text" placeholder="Email" name="Email" required></p>
-                    <p><input class="w3-input w3-border" type="text" placeholder="Subject" name="Subject" required></p>
-                    <p><input class="w3-input w3-border" type="text" placeholder="Message" name="Message" required></p>
-                    <button type="submit" class="w3-button w3-block w3-black">Send</button>
-                </form>
-            </div>
+    <!-- Pagination -->
+    <div class="w3-center w3-padding-32">
+        <div class="w3-bar">
+            <a class="w3-button w3-black" href="#">1</a>
+            <a class="w3-button w3-hover-black" href="#">2</a>
+            <a class="w3-button w3-hover-black" href="#">3</a>
+            <a class="w3-button w3-hover-black" href="#">4</a>
+            <a class="w3-button w3-hover-black" href="#">5</a>
+            <a class="w3-button w3-hover-black" href="#">»</a>
+        </div>
+    </div>
 
-            <div class="w3-col s4">
-                <h4>About</h4>
-                <p><a href="#">About us</a></p>
-                <p><a href="#">We're hiring</a></p>
-                <p><a href="#">Support</a></p>
-                <p><a href="#">Find store</a></p>
-                <p><a href="#">Shipment</a></p>
-                <p><a href="#">Payment</a></p>
-                <p><a href="#">Gift card</a></p>
-                <p><a href="#">Return</a></p>
-                <p><a href="#">Help</a></p>
-            </div>
-
-            <div class="w3-col s4 w3-justify">
-                <h4>Store</h4>
-                <p><i class="fa fa-fw fa-map-marker"></i> Company Name</p>
-                <p><i class="fa fa-fw fa-phone"></i> 0044123123</p>
-                <p><i class="fa fa-fw fa-envelope"></i> ex@mail.com</p>
-                <h4>We accept</h4>
-                <p><i class="fa fa-fw fa-cc-amex"></i> Amex</p>
-                <p><i class="fa fa-fw fa-credit-card"></i> Credit Card</p>
-                <br>
-                <i class="fa fa-facebook-official w3-hover-opacity w3-large"></i>
-                <i class="fa fa-instagram w3-hover-opacity w3-large"></i>
-                <i class="fa fa-snapchat w3-hover-opacity w3-large"></i>
-                <i class="fa fa-pinterest-p w3-hover-opacity w3-large"></i>
-                <i class="fa fa-twitter w3-hover-opacity w3-large"></i>
-                <i class="fa fa-linkedin w3-hover-opacity w3-large"></i>
-            </div>
+    <footer id="myFooter">
+        <div class="w3-container w3-theme-l2 w3-padding-32">
+            <h4>Footer</h4>
+        </div>
+        <div class="w3-container w3-theme-l1">
+            <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
         </div>
     </footer>
 
-    <div class="w3-black w3-center w3-padding-24">Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-opacity">w3.css</a></div>
-
-    <!-- End page content -->
-</div>
-
-<!-- Newsletter Modal -->
-<div id="newsletter" class="w3-modal">
-    <div class="w3-modal-content w3-animate-zoom" style="padding:32px">
-        <div class="w3-container w3-white w3-center">
-            <i onclick="document.getElementById('newsletter').style.display='none'" class="fa fa-remove w3-right w3-button w3-transparent w3-xxlarge"></i>
-            <h2 class="w3-wide">NEWSLETTER</h2>
-            <p>Join our mailing list to receive updates on new arrivals and special offers.</p>
-            <p><input class="w3-input w3-border" type="text" placeholder="Enter e-mail"></p>
-            <button type="button" class="w3-button w3-padding-large w3-red w3-margin-bottom" onclick="document.getElementById('newsletter').style.display='none'">Subscribe</button>
-        </div>
-    </div>
+    <!-- END MAIN -->
 </div>
 
 <script>
-    // Accordion
-    function myAccFunc() {
-        var x = document.getElementById("demoAcc");
-        if (x.className.indexOf("w3-show") == -1) {
-            x.className += " w3-show";
+    // Get the Sidebar
+    var mySidebar = document.getElementById("mySidebar");
+
+    // Get the DIV with overlay effect
+    var overlayBg = document.getElementById("myOverlay");
+
+    // Toggle between showing and hiding the sidebar, and add overlay effect
+    function w3_open() {
+        if (mySidebar.style.display === 'block') {
+            mySidebar.style.display = 'none';
+            overlayBg.style.display = "none";
         } else {
-            x.className = x.className.replace(" w3-show", "");
+            mySidebar.style.display = 'block';
+            overlayBg.style.display = "block";
         }
     }
 
-    // Click on the "Jeans" link on page load to open the accordion for demo purposes
-    document.getElementById("myBtn").click();
-
-
-    // Open and close sidebar
-    function w3_open() {
-        document.getElementById("mySidebar").style.display = "block";
-        document.getElementById("myOverlay").style.display = "block";
-    }
-
+    // Close the sidebar with the close button
     function w3_close() {
-        document.getElementById("mySidebar").style.display = "none";
-        document.getElementById("myOverlay").style.display = "none";
+        mySidebar.style.display = "none";
+        overlayBg.style.display = "none";
     }
 </script>
 

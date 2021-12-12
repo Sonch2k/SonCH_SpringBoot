@@ -17,7 +17,6 @@ public class LoginController {
     }
     @RequestMapping("/admin/login/sucess")
     public String loginSuccessfull(Model model) {
-        model.addAttribute("message", "Thanh Cong");
-        return "index";
+        return "body";
     }
 }

@@ -2,7 +2,6 @@ package com.Monstarlab.SonCH.services.impl;
 
 import com.Monstarlab.SonCH.configuration.CommonProperties;
 import com.Monstarlab.SonCH.request.AuthRequest;
-import com.Monstarlab.SonCH.response.BaseResponse;
 import com.Monstarlab.SonCH.response.LoginResponse;
 import com.Monstarlab.SonCH.response.information.LoginInfo;
 import com.Monstarlab.SonCH.services.AuthenticateService;
@@ -21,7 +20,7 @@ import java.util.Date;
 public class AuthenticateServiceImpl implements AuthenticateService {
     private AuthenticationManager authenticationManager;
     private JwtUtils jwtUtils;
-private CommonProperties commonProperties;
+    private CommonProperties commonProperties;
     @Override
     public LoginResponse performAuthenticate(AuthRequest authRequest) {
         Authentication authentication = authenticationManager.authenticate(
@@ -34,8 +33,8 @@ private CommonProperties commonProperties;
         Date expiration = new Date(now.getTime() + commonProperties.getExpiration());
         SecurityContextHolder.getContext().setAuthentication(authentication);
         String jwtToken = jwtUtils.generateToken(authentication);
-        LoginInfo loginInfo = new LoginInfo(jwtToken,expiration.toString());
+        LoginInfo loginInfo = new LoginInfo(jwtToken, expiration.toString());
 
-        return new LoginResponse("200",loginInfo,"login success");
+        return new LoginResponse("200", loginInfo, "login success");
     }
 }

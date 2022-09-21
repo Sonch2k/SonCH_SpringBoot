@@ -2,6 +2,7 @@ package com.Monstarlab.SonCH.controller;
 
 import com.Monstarlab.SonCH.exception.BadRequestException;
 import com.Monstarlab.SonCH.exception.DataDuplicatedException;
+import com.Monstarlab.SonCH.request.ChangeRequest;
 import com.Monstarlab.SonCH.request.RegisterRequest;
 import com.Monstarlab.SonCH.response.BaseResponse;
 import com.Monstarlab.SonCH.response.ResponseMessage;
@@ -25,5 +26,15 @@ public class RegisterController {
         }catch (DataDuplicatedException e) {
             throw new BadRequestException(ResponseMessage.DuplicatedUsername, request.getUsername());
         }
+    }
+    @PostMapping("/change")
+    public BaseResponse changeController(@Valid @RequestBody ChangeRequest request) throws DataDuplicatedException {
+        BaseResponse response = registerService.changePerform(request);
+        return response;
+    }
+    @PostMapping("/delete")
+    public BaseResponse deleteController(@Valid @RequestBody RegisterRequest request) throws DataDuplicatedException {
+        BaseResponse response = registerService.removePerform(request);
+        return response;
     }
 }
